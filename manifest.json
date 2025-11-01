@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Domain Extractor - مستخرج النطاقات",
+  "version": "1.0",
+  "description": "استخراج النطاقات تلقائياً من جميع الصفحات وحفظها في ملف",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

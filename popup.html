@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مستخرج النطاقات</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 350px;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    
+    h1 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .info {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .stat-box {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 24px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+    
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+    
+    .btn-start {
+      background: linear-gradient(135deg, #00b09b, #96c93d);
+      color: white;
+    }
+    
+    .btn-start:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 176, 155, 0.4);
+    }
+    
+    .btn-stop {
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+      color: white;
+    }
+    
+    .btn-stop:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+    }
+    
+    .btn-stop:disabled,
+    .btn-start:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .status {
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 13px;
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .status.active {
+      background: rgba(0, 255, 0, 0.2);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 11px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌐 مستخرج النطاقات</h1>
+    
+    <div class="info">
+      يعمل تلقائياً على استخراج جميع النطاقات من الصفحات وحفظها في ملف واحد
+    </div>
+    
+    <div class="stats">
+      <div class="stat-box">
+        <span class="stat-number" id="domainsCount">0</span>
+        <span class="stat-label">نطاق</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" id="pagesCount">0</span>
+        <span class="stat-label">صفحة</span>
+      </div>
+    </div>
+    
+    <button class="btn-start" id="startBtn">▶ بدء الاستخراج</button>
+    <button class="btn-stop" id="stopBtn" disabled>⏹ إيقاف وتحميل</button>
+    
+    <div class="status" id="status">جاهز للبدء</div>
+    
+    <div class="footer">
+      v1.0 - Domain Extractor
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
